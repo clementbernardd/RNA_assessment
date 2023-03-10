@@ -1,6 +1,22 @@
 # Basic RNA 3D structure comparison metrics used in RNA-Puzzles assessment. 
 ---
+## Update 
+An update of the RNA Assessment repo. 
+I just modify some lines that seemed to don't work, and I added different files that were all located in a `__init__` file. 
+I added also a layer to separate and have a consistent way of using the different scores. 
 
+## Installation - Docker 
+
+To run the `example.py` file with Docker, you can use: 
+
+```
+docker build -t rna_assessment .
+docker run rna_assessment
+```
+
+
+
+## Previous README
 This git includes:  
 
 * an RNA structure normalization tool used in RNA-Puzzles.
@@ -24,6 +40,7 @@ Please download the binary excution from the website and coordinate the director
 
 ## how to use
 A detailed introduction can be found in the example [notebook](https://github.com/RNA-Puzzles/RNA_assessment/blob/master/example.ipynb) or the example [script](https://github.com/RNA-Puzzles/RNA_assessment/blob/master/example/example.py). 
+
 
 ## citation
 Hajdin et al., RNA (7) 16, 2010  
