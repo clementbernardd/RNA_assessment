@@ -1,4 +1,4 @@
-from RNA_normalizer.msgs import show
+from lib.rna_assessment.RNA_normalizer.msgs import show
 
 
 class PDBNormalizer:

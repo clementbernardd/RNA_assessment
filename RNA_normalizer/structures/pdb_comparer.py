@@ -3,8 +3,8 @@ import os
 
 from Bio.PDB import PDBIO, Superimposer
 
-from RNA_normalizer.msgs import show
-from RNA_normalizer.utils import erf
+from lib.rna_assessment.RNA_normalizer.msgs import show
+from lib.rna_assessment.RNA_normalizer.utils import erf
 
 BIN_DIR = os.getcwd()
 

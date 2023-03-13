@@ -3,19 +3,20 @@ import sys
 
 from Bio.PDB import PDBParser, Vector
 
-from RNA_normalizer.mcannotate import MCAnnotate
-from RNA_normalizer.msgs import show
-from RNA_normalizer.structures.residue import Residue
+from lib.rna_assessment.RNA_normalizer.mcannotate import MCAnnotate
+from lib.rna_assessment.RNA_normalizer.msgs import show
+from lib.rna_assessment.RNA_normalizer.structures.residue import Residue
 
 
 class PDBStruct(object):
-    def __init__(self):
+    def __init__(self, mc_annotate_bin):
         self._pdb_file = None
         self._struct = None
         self._res_list = []
         self._res_seq = []
         self._res_index = {}
         self._interactions = []
+        self.mc_annotate_bin = mc_annotate_bin
 
     # self._brackets = []
     # self._wcpairs = []
@@ -25,7 +26,7 @@ class PDBStruct(object):
 
         ok = self._load_struct()
 
-        if ok and not index_name is None:
+        if ok and index_name is not None:
             ok = self._load_index(index_name)
         else:
             ok = self._load_index2()
@@ -191,7 +192,7 @@ class PDBStruct(object):
 
     def _load_annotations_3D(self):
         self._interactions = []
-        mca = MCAnnotate()
+        mca = MCAnnotate(self.mc_annotate_bin)
         mca.load(self._pdb_file)
         # ~ print mca.interactions
         for (

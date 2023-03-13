@@ -23,13 +23,20 @@ import os
 import re
 
 # !!! IMPORTANT, please set the directory of MC-Annotate before using this script.
+from typing import Optional
+
 BIN_DIR = os.getcwd()
 # MCAnnotate_bin='%s/MC-Annotate'%BIN_DIR
 MCAnnotate_bin = "./MC-Annotate"
 
 
 class MCAnnotate:
-    def __init__(self):
+    def __init__(self, mc_annotate_bin: Optional[None] = None):
+        """
+
+        :param mc_annotate_bin: path to the binary MC-Annotate code
+        """
+        self.mc_annotate_bin = mc_annotate_bin if mc_annotate_bin is not None else MCAnnotate_bin
         self.mc_file = ""
         self.residues = []
         self.interactions = []
@@ -53,7 +60,7 @@ class MCAnnotate:
         # check if the annotation file exists
         if not os.path.isfile(self.mc_file):
             # create a new annotation file
-            cmd = "%s %s > %s" % (MCAnnotate_bin, pdb_file, self.mc_file)
+            cmd = "%s %s > %s" % (self.mc_annotate_bin, pdb_file, self.mc_file)
             # breakpoint()
             os.system(cmd)
 

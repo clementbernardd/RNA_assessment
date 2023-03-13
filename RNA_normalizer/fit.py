@@ -2,6 +2,7 @@
 # Fits two or more molecules
 #
 import os
+import sys
 
 from Bio.Clustalw import *
 from Bio.PDB import *
@@ -147,7 +148,7 @@ def GetAtomsFromResidues(ref_residues, cmp_residues):
     if len(ref_residues) != len(cmp_residues):
         print("!! Different number of residues!")
 
-    for i in xrange(0, min(len(ref_residues), len(cmp_residues))):
+    for i in range(0, min(len(ref_residues), len(cmp_residues))):
         rr = ref_residues[i]
         cr = cmp_residues[i]
 
