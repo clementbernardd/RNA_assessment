@@ -23,7 +23,7 @@ import os
 import re
 
 # !!! IMPORTANT, please set the directory of MC-Annotate before using this script.
-from typing import Optional
+from typing import Optional, List
 
 BIN_DIR = os.getcwd()
 # MCAnnotate_bin='%s/MC-Annotate'%BIN_DIR
@@ -38,8 +38,8 @@ class MCAnnotate:
         """
         self.mc_annotate_bin = mc_annotate_bin if mc_annotate_bin is not None else MCAnnotate_bin
         self.mc_file = ""
-        self.residues = []
-        self.interactions = []
+        self.residues: List = []
+        self.interactions: List = []
 
     def _init_dir(self, pdb_file, tmp_dir="tmp"):
         """
