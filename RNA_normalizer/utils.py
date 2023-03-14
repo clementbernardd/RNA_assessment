@@ -60,7 +60,7 @@ def get_index_file(pdb_file, pdb_result_file=""):
         pdb_result_file.replace(".pdb", ""),
     )
 
-    if (pdb_result_file is "") or (not os.path.isfile(index_file)):
+    if (pdb_result_file == "") or (not os.path.isfile(index_file)):
         index_file = pdb_file.replace(".pdb", ".index")
 
     if not os.path.isfile(index_file):
