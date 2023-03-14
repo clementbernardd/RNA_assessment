@@ -36,7 +36,7 @@ class MCAnnotate:
 
         :param mc_annotate_bin: path to the binary MC-Annotate code
         """
-        self.mc_annotate_bin = mc_annotate_bin if mc_annotate_bin is not None else MCAnnotate_bin
+        self.mc_annotate_bin = mc_annotate_bin if mc_annotate_bin is not None else os.path.join("lib", "rna_assessment", "MC-Annotate")
         self.mc_file = ""
         self.residues: List = []
         self.interactions: List = []
