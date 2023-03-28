@@ -258,13 +258,6 @@ class PDBComparer:
                     trg_atom_list.append(trg_atom)
                     found = True
                     break
-
-            if not found:
-                show(
-                    "WARNING",
-                    "Atom %s from residue %s not found in target atom list"
-                    % (src_name, src_res.id),
-                )
         return (src_atom_list, trg_atom_list)
 
     def _get_atoms_struct(self, atom_list, src_residues, trg_residues):
