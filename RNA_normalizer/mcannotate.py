@@ -59,8 +59,8 @@ class MCAnnotate:
         self.mc_file = self._init_dir(pdb_file)
         # check if the annotation file exists
         if not os.path.isfile(self.mc_file):
-            # create a new annotation file
-            cmd = "%s %s > %s" % (self.mc_annotate_bin, pdb_file, self.mc_file)
+            # create a new annotation file & redirect output
+            cmd = "%s %s > %s >/dev/null 2>&1" % (self.mc_annotate_bin, pdb_file, self.mc_file)
             # breakpoint()
             os.system(cmd)
 
